@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "723393638531",
+    "project_id": "vrittanta-fe68c",
+    "storage_bucket": "vrittanta-fe68c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:723393638531:android:defb86947b225df9e02bb6",
+        "android_client_info": {
+          "package_name": "com.example.vrittanta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "723393638531-lj3pofak0n7d6n3nl7bt6qvh3oauiu07.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTAWk2k4pw2JBP87LaPZdKNt172RdxQY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "723393638531-lj3pofak0n7d6n3nl7bt6qvh3oauiu07.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
