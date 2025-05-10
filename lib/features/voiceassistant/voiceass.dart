@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:vrittanta/core/theme/pallete.dart';
 
@@ -10,118 +9,100 @@ class VoiceAss extends StatefulWidget {
 }
 
 class _VoiceAssState extends State<VoiceAss> {
-  String transcribedText = ''; // Placeholder for transcribed text
+  String transcribedText = '';
 
   void startRecording() {
-    // Placeholder for starting the recording
-    // You can integrate Google Cloud Speech-to-Text here as per the roadmap
     setState(() {
-      transcribedText =
-          'Transcription will appear here...'; // Mock transcription
+      transcribedText = 'Transcription will appear here...';
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // Get screen dimensions for responsive scaling
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    // Adjust font size and padding based on screen width
     final baseFontSize =
         screenWidth > 1200
             ? 24.0
             : screenWidth > 600
             ? 20.0
-            : 16.0; // Scale font for very large screens
+            : 16.0;
     final basePadding =
         screenWidth > 1200
             ? 32.0
             : screenWidth > 600
             ? 24.0
-            : 16.0; // Scale padding dynamically
+            : 16.0;
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Vrittanta'),
-        leading: const Icon(Icons.menu),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.person),
-            onPressed: () {
-              print('Profile button pressed');
-            },
-          ),
-        ],
-      ),
+      appBar: AppBar(centerTitle: true, title: const Text('Vrittanta')),
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(basePadding), // Dynamic padding
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Header: "Scribing for Patient Name"
-              Text(
-                'Scribing for Patient Name',
-                style: TextStyle(
-                  fontSize: baseFontSize + 4, // Slightly larger for header
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: basePadding * 0.5), // Dynamic spacing
-              // Text Area for Transcription
-              Expanded(
-                flex: 3, // Give more space to transcription area
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Pallete.borderColor, width: 2),
-                    borderRadius: BorderRadius.circular(8),
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: basePadding),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Spacer(),
+
+                // Header
+                Text(
+                  'Scribing for Patient Name',
+                  style: TextStyle(
+                    fontSize: baseFontSize + 4,
+                    fontWeight: FontWeight.bold,
                   ),
-                  padding: EdgeInsets.all(basePadding * 0.75),
-                  child: SingleChildScrollView(
-                    child: Text(
-                      transcribedText.isEmpty
-                          ? 'Transcription will appear here...'
-                          : transcribedText,
-                      style: TextStyle(
-                        fontSize: baseFontSize,
-                        color: Colors.black54,
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: basePadding * 0.75),
+
+                // Transcription Box
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.all(basePadding),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Pallete.borderColor, width: 2),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: SingleChildScrollView(
+                      child: Text(
+                        transcribedText.isEmpty
+                            ? 'Transcription will appear here...'
+                            : transcribedText,
+                        style: TextStyle(
+                          fontSize: baseFontSize,
+                          color: Colors.black87,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: basePadding * 0.5), // Dynamic spacing
-              // Record Button Section
-              Flexible(
-                flex: 1, // Ensure button section doesn't take too much space
-                child: Center(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min, // Prevent over-expansion
-                    children: [
-                      FloatingActionButton(
-                        onPressed: startRecording,
-                        backgroundColor: Colors.blue,
-                        child: const Icon(
-                          Icons.add,
-                          size: 30,
-                          color: Colors.white,
-                        ),
+
+                SizedBox(height: basePadding),
+
+                // Record Button
+                Column(
+                  children: [
+                    FloatingActionButton(
+                      onPressed: startRecording,
+                      backgroundColor: Colors.blue,
+                      child: const Icon(Icons.mic, color: Colors.white),
+                    ),
+                    SizedBox(height: basePadding * 0.25),
+                    Text(
+                      'Start Recording',
+                      style: TextStyle(
+                        fontSize: baseFontSize,
+                        fontWeight: FontWeight.w500,
                       ),
-                      SizedBox(height: basePadding * 0.25),
-                      Text(
-                        'Record',
-                        style: TextStyle(
-                          fontSize: baseFontSize,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
+
+                const Spacer(),
+              ],
+            ),
           ),
         ),
       ),
