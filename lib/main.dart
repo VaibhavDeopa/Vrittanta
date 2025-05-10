@@ -11,7 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+<<<<<<< HEAD
       title: 'Vrittanta',
+=======
+      title: 'Flutter Demo',
+>>>>>>> 0aaf1a20d050b4e6233177b5373579669c770293
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -30,7 +34,11 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
+<<<<<<< HEAD
       home: const Text('Vrittanta'),
+=======
+      home: const Scaffold(),
+>>>>>>> 0aaf1a20d050b4e6233177b5373579669c770293
     );
   }
 }
